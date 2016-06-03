@@ -138,7 +138,7 @@ function generirajPodatke(stPacienta) {
     	                    $("#kreirajSporocilo").html("<span class='obvestilo " +
                           "label label-success fade-in'>Uspešno kreiran EHR '" +
                           ehrId + "'.</span>");
-    	                    $("#preberiEHRid").val(ehrId);
+    	                    $("#izpisEhrStalne").val(ehrId);
     	                }
     	            },
     	            error: function(err) {
@@ -153,5 +153,22 @@ function generirajPodatke(stPacienta) {
     return ehrID;
 }
 
+function izracunItm(masa, visina) {
+    return masa/(visina*visina/10000);
+}
 
+function odvecnaMasa(masa, visina, itm) {
+    if (itm>=25) return 0;
+    else {
+        return (itm - 25) * (visina*visina/10000);
+    }
+}
+
+function odvecneKalorije(masa) {
+    return masa*9000;
+}
+
+function kilometriTeka(kalorije, ...) {
+    // body...
+}
 // TODO: Tukaj implementirate funkcionalnost, ki jo podpira vaša aplikacija
