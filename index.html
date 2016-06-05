@@ -6,6 +6,7 @@
   <link href="knjiznice/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {padding-top: 70px;}
+    .panel-heading {color:#99FF99;}
   </style>
   <script src="knjiznice/js/jquery-2.2.3.min.js"></script>
   <script src="knjiznice/js/bootstrap.min.js"></script>
@@ -37,9 +38,9 @@
   <!-- KONEC: Menujska vrstica na vrhu spletne strani -->
 
   <!-- ZAČETEK: Vsebina aplikacije -->
-   <!-- kopija demota -->
+   <!-- začetek demota -->
   
-  <div class="page-header"><h2>Vnos in poizvedovanje po EHR podatkih <small>EhrScape platforma</small></h2></div>
+  <div class="page-header"><h2>Vnos in poizvedovanje po EHR podatkih ter izračun gibanja za izgubo teže <small>EhrScape platforma</small></h2></div>
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6">
 				<div class="panel panel-default">
@@ -120,13 +121,16 @@
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-lg-8 col-md-8 col-sm-8"><b>ITM in predvidena odvečna masa</b></div>
-					<div class="col-lg-4 col-md-4 col-sm-4"><select class="form-control input-sm" id="prikaziItmInRazliko"></select></div>
 				</div>
 			</div>
 			<div class="panel-body">
-				<span class="label label-default">EHR ID</span><input id="preberiEHRid" type="text" class="form-control input-mini" placeholder="666h1e12-3a98-21ad-c29e-2dc9f5a3d666">
-				<button type="button" class="btn btn-primary btn-xs" onclick="prikaziItmInRazliko()">Prikaži ITM in maso</button><span id="preberiSporocilo"></span>
-        <p id="prikazItm"></p>
+				<span class="label label-default">Masa in višina</span>
+				<input id="preberiMasoItm" type="text" class="form-control input-mini" placeholder="vnesite maso v kg">
+				<input id="preberiVisinoItm" type="text" class="form-control input-mini" placeholder="vnesite višino v cm">
+				<button type="button" class="btn btn-primary btn-xs" onclick="prikaziItmInRazliko()">Prikaži ITM in odvečno maso</button><span id="preberiSporocilo"></span>
+        <input id="prikaziItm" type="text" class="form-control input-mini" placeholder="vaš ITM">
+        <input id="prikaziOdvecnoMaso" type="text" class="form-control input-mini" placeholder="odvečna masa">
+        <input id="prikaziOdvecneKalorije" type="text" class="form-control input-mini" placeholder="odvečne kalorije">
 		  </div>
 		</div>
 	</div>
@@ -139,13 +143,38 @@
 				</div>
 			</div>
 			<div class="panel-body">
-				<button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(1)">Prikaži stranko 1</button><span id="preberiSporocilo"></span>
-				<button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(2)">Prikaži stranko 2</button><span id="preberiSporocilo"></span>
-				<button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(3)">Prikaži stranko 3</button><span id="preberiSporocilo"></span>
-				<span class="label label-default">EHR ID</span><input id="izpisEhrStalne" type="text" class="form-control input-mini" placeholder="666h1e12-3a98-21ad-c29e-2dc9f5a3d666">
+			    <button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(1)">Prikaži stranko 1</button>
+				  <button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(2)">Prikaži stranko 2</button>
+				  <button type="button" class="btn btn-primary btn-xs" onclick="generirajPodatke(3)">Prikaži stranko 3</button>
+				  <span id="stalneSporocilo"></span></br>
+				<span class="label label-default">EHR stalne stranke: </span><input id="izpisEhrStalne" type="text" class="form-control input-mini" placeholder="ehr id">
 		  </div>
 		</div>
 	</div>
+	
+	<div class="col-lg-6 col-md-6 col-sm-6">
+	  <div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-lg-8 col-md-8 col-sm-8"><b>Količina hoje ali teka za porabo kalorij</b></div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<span class="label label-default">Kalorije in masa</span>
+				<input id="preberiKalorije" type="text" class="form-control input-mini" placeholder="vnesite kalorije v kcal">
+				<input id="preberiMaso" type="text" class="form-control input-mini" placeholder="vnesite maso v kg">
+				<button type="button" class="btn btn-primary btn-xs" onclick="prikaziTekInHojo()">Prikaži km teka in hoje</button>
+				<input id="prikaziHojo" type="text" class="form-control input-mini" placeholder="hoja">
+				<input id="prikaziTek" type="text" class="form-control input-mini" placeholder="tek">
+		  </div>
+		</div>
+	</div>
+
+
+<div style="text-align:center">
+  <a class="twitter-timeline"  href="https://twitter.com/hashtag/running" data-widget-id="739480854645342208">#running Tweets</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>       
  
   <!-- KONEC: Vsebina aplikacije -->
 
